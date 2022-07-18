@@ -13,7 +13,7 @@ RecyclerView.Adapter<ContactsViewHolder>(){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContactsViewHolder {
         //displays the list of items
 
-        var binding = ContactListItemBinding.inflate(LayoutInflater.from(parent.context),parent,false)
+        var binding =ContactListItemBinding.inflate(LayoutInflater.from(parent.context),parent,false)
         var contactsViewHolder = ContactsViewHolder(binding)
         return  contactsViewHolder
     }
@@ -24,8 +24,6 @@ RecyclerView.Adapter<ContactsViewHolder>(){
         holder.binding.tvPhone.text=currentContact.phoneNumber
         holder.binding.tvAddress.text=currentContact.address
         holder.binding.tvEmail.text=currentContact.email
-
-
         Picasso.get()
             .load(currentContact.image)
             .placeholder(R.drawable.ic_baseline_account_circle_24)
