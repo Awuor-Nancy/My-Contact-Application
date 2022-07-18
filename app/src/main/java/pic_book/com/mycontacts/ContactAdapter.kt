@@ -26,45 +26,34 @@ RecyclerView.Adapter<ContactsViewHolder>(){
         holder.binding.tvEmail.text=currentContact.email
 
 
-        Picasso.get().load(currentContact.image)
+        Picasso.get()
+            .load(currentContact.image)
             .placeholder(R.drawable.ic_baseline_account_circle_24)
             .error(R.drawable.ic_baseline_nearby_error_24)
             .resize(300,400)
             .centerCrop()
             .into(holder.binding.ivUser)
 
-
-
         val context = holder.itemView.context
         holder.binding.ivUser.setOnClickListener{
             Toast.makeText(context,"you have clicked on ${currentContact.name } the image", Toast.LENGTH_SHORT).show()
         }
-        holder.binding.cvContact.setOnClickListener{
-            val intent = Intent(context,viewContactActivity::class.java)
-
-            holder.binding.cvContact.setOnClickListener {
-                val intent = Intent(context,ContactsViewHolder::class.java)
-
-            }
-
-            intent.putExtra("Name", currentContact.name)
+         holder.binding.cvContact.setOnClickListener {
+             val intent = Intent(context,ContactsViewHolder::class.java)
+             intent.putExtra("Name", currentContact.name)
             intent.putExtra("Email", currentContact.email)
             intent.putExtra("Phone",currentContact.phoneNumber)
             intent.putExtra("Image",currentContact.image)
-            intent.putExtra("back",currentContact.back)
-
-            intent.putExtra("name",currentContact.contact)
-            intent.putExtra("name",currentContact.address)
-
+            intent.putExtra("Address",currentContact.address)
             context.startActivity(intent)
-        }
+         }
     }
 
     override fun getItemCount(): Int {
-       return  contactList.size
+        return  contactList.size
     }
 }
 
-class ContactsViewHolder(var binding: ContactListItemBinding):
-    RecyclerView.ViewHolder(binding.root){
-    }
+class ContactsViewHolder(var binding: ContactListItemBinding): RecyclerView.ViewHolder(binding.root) {
+
+}
