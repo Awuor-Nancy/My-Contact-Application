@@ -14,6 +14,10 @@ class viewContactActivity : AppCompatActivity() {
         val extras = intent.extras
         val name = extras?.getString("Name", "")
         var email = extras?.getString("Email","")
+//        var phone = extras?.getString("Contact","")
+//        var image = extras?.getString("Image","image")
+//        var address = extras?.getString("address","")
+
 
         Toast.makeText(this," $name: $email",Toast.LENGTH_SHORT).show()
 

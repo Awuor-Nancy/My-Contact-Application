@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">MyContacts</string>
+    <string name="bro">Bro</string>
+    <string name="in_your_contacts">IN YOUR CONTACTS</string>
+    <string name="kenya">Kenya</string>
+    <string name="_27_7_22_12_06_am">27/7/22 12:06 am</string>
+    <string name="yesterday_8_49_pm_6s">Yesterday 8:49 PM (6s)</string>
+    <string name="call_history">Call History</string>
+    <string name="today_1_00_am">Today 1:00 am</string>
 </resources>

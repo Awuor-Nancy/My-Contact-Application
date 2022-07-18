@@ -24,12 +24,16 @@ RecyclerView.Adapter<ContactsViewHolder>(){
         holder.binding.tvPhone.text=currentContact.phoneNumber
         holder.binding.tvAddress.text=currentContact.address
         holder.binding.tvEmail.text=currentContact.email
+
+
         Picasso.get().load(currentContact.image)
             .placeholder(R.drawable.ic_baseline_account_circle_24)
-            . error(R.drawable.ic_baseline_nearby_error_24)
+            .error(R.drawable.ic_baseline_nearby_error_24)
             .resize(300,400)
             .centerCrop()
             .into(holder.binding.ivUser)
+
+
 
         val context = holder.itemView.context
         holder.binding.ivUser.setOnClickListener{
@@ -37,8 +41,21 @@ RecyclerView.Adapter<ContactsViewHolder>(){
         }
         holder.binding.cvContact.setOnClickListener{
             val intent = Intent(context,viewContactActivity::class.java)
+
+            holder.binding.cvContact.setOnClickListener {
+                val intent = Intent(context,ContactsViewHolder::class.java)
+
+            }
+
             intent.putExtra("Name", currentContact.name)
             intent.putExtra("Email", currentContact.email)
+            intent.putExtra("Phone",currentContact.phoneNumber)
+            intent.putExtra("Image",currentContact.image)
+            intent.putExtra("back",currentContact.back)
+
+            intent.putExtra("name",currentContact.contact)
+            intent.putExtra("name",currentContact.address)
+
             context.startActivity(intent)
         }
     }
@@ -51,15 +68,3 @@ RecyclerView.Adapter<ContactsViewHolder>(){
 class ContactsViewHolder(var binding: ContactListItemBinding):
     RecyclerView.ViewHolder(binding.root){
     }
-
-
-
-
-
-
-
-//    var tvName = itemView.findViewById<TextView>(R.id.tvName)
-//    var tvPhone = itemView.findViewById<TextView>(R.id.tvPhone)
-//    var tvAddress = itemView.findViewById<TextView>(R.id.tvAddress)
-//    var tvEmail = itemView.findViewById<TextView>(R.id.tvEmail)
-//    var ivUser = itemView.findViewById<ImageView>(R.id.ivUser)
